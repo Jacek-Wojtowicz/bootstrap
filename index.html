@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+    <script src="js/validator.js"></script>
+    <title>Hello, world!</title>
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <a class="navbar-brand" href="#">Fixed navbar</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="form-inline mt-2 mt-md-0">
+              <button type="button" class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#exampleModal">
+                  Koszyk
+                </button>
+            </form>
+          </div>
+      </nav>
+    </header>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Koszyk</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nazwa</th>
+                                        <th scope="col">Cena</th>
+                                        <th scope="col">Ilość</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">1</th>
+                                        <td>Piłka</td>
+                                        <td>10,50</td>
+                                        <td>1</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label">Dostawa</label>
+                                <div class="col-sm-10">
+                                    <select id="inputState" class="form-control">
+                                        <option selected>Wybierz</option>
+                                        <option>Odbiór własny</option>
+                                        <option>Dowóz</option>
+                                        <option>Paczkomat</option>
+                                      </select>
+                                </div>
+
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary mr-auto">Kup</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      <main role="main" class="flex-shrink-0">
+        <div class="container-fluid">
+            <div class="row">
+              <div class="alert-info col-12 col-md-4 col-xl-2">
+                One of three columns
+              </div>
+              <div class="alert-danger col-12 col-md-4 col-xl-8">
+                <p class="text-center"> Dodawanie produktu </p>
+                <form>
+                    <div class="form-group row">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Nazwa</label>
+                      <div class="col-sm-10">
+                        <input type="text" oninput="validateName()" class="form-control" id="nameId" placeholder="Nazwa">
+                        <div id="nameIdError"></div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">Kod</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="kodId" placeholder="Kod" oninput="validateKod()">
+                        <div id="kodIdError"></div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Cena netto</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="nettoId" placeholder="Cena netto" oninput="validateNetto()">
+                          <div id="nettoIdError"></div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="inputPassword3" class="col-sm-2 col-form-label">VAT</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control" id="vatId" placeholder="VAT" oninput="validateVat()">
+                            <div id="vatIdError"></div>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Cena brutto</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="bruttoId" placeholder="Cena brutto" readonly>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Kategoria</label>
+                            <div class="col-sm-10">
+                                <select required id="inputState" class="form-control">
+                                    <option value="">Wybierz</option>
+                                    <option value="dom">Dom</option>
+                                    <option value="ogród">Ogród</option>
+                                    <option value="garaz">Garaż</option>
+                                  </select>
+                            </div>
+                          </div>
+                    <div class="form-group row">
+                      <div class="col-sm-2">Opcje towaru</div>
+                      <div class="col-sm-10">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input mojclass" type="checkbox" id="gridCheck1">
+                          <label class="form-check-label" for="gridCheck1">
+                            Używane
+                          </label>
+                        </div>
+                        <div class="form-check form-check-inline mojclass">
+                            <input class="form-check-input" type="checkbox" id="gridCheck1">
+                            <label class="form-check-label" for="gridCheck1">
+                              Nowe
+                            </label>
+                          </div>
+                          <div class="form-check form-check-inline mojclass">
+                              <input class="form-check-input" type="checkbox" id="gridCheck1">
+                              <label class="form-check-label" for="gridCheck1">
+                                Przecenione
+                              </label>
+                            </div>
+                            <div class="form-check form-check-inline mojclass">
+                                <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                <label class="form-check-label" for="gridCheck1">
+                                  Polecane
+                                </label>
+                              </div>
+                              <div class="form-check form-check-inline mojclass">
+                                  <input class="form-check-input" type="checkbox" id="gridCheck1">
+                                  <label class="form-check-label" for="gridCheck1">
+                                    Fajne
+                                  </label>
+                                </div>
+                      </div>
+                    </div>
+                    <fieldset class="form-group">
+                        <div class="row">
+                          <legend class="col-form-label col-sm-2 pt-0">Ocena towaru</legend>
+                          <div class="col-sm-10">
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
+                              <label class="form-check-label" for="gridRadios1">
+                                1
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                              <label class="form-check-label" for="gridRadios2">
+                                2
+                              </label>
+                            </div>
+                            <div class="form-check disabled">
+                              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" checked>
+                              <label class="form-check-label" for="gridRadios3">
+                                3
+                              </label>
+                            </div>
+                            <div class="form-check disabled">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                                <label class="form-check-label" for="gridRadios3">
+                                  4
+                                </label>
+                              </div>
+                              <div class="form-check disabled">
+                                  <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                                  <label class="form-check-label" for="gridRadios3">
+                                    5
+                                  </label>
+                                </div>
+                          </div>
+                            
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Zdjęcie</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" id="inputPassword3" placeholder="Zdjęcie">
+                            </div>
+                          </div>
+                        
+                      </fieldset>
+                    <div class="form-group row">
+                      <div class="col-sm-10 col-md-12 text-center">
+                        <button type="Dodaj" class="btn btn-primary" onClick="validateAll()">Dodaj</button>
+                      </div>
+                    </div>
+                  </form>
+              </div>
+              <div class="alert-success col-12 col-md-4 col-xl-2">
+                  One of three columns
+                  <div class="card">
+                      <img src="duda.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <p class="card-text">Jakiś problem kolego?</p>
+                      </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+    </main>
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+          <span class="text-muted">Mysterious sticky footer content is here.</span>
+        </div>
+      </footer>
+    <!-- Optional<JavaScript> -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
