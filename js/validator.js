@@ -1,5 +1,5 @@
 let isValid = new Boolean(false); 
-const postcode_regex = /[0-9A-Z]{2}?[-]?[0-9A-Z]{2}/gi;
+const postcode_regex =  /^[0-9A-Z]{2}[-][0-9A-Z]{2}$/gi;
 const lettersRegex = /^[A-Za-z]+$/;
 const numberRegex = /^[0-9]?[,]?^[0-9]/;
 let nettoFieldValid = new Boolean(false);
@@ -15,23 +15,23 @@ function validateName(){
 function validateCheckbox(){
 	let checkoboxes = document.getElementsByClassName('mojclass');
 	let checkboxIdError = document.getElementById('checkboxIdError');
-	console.log("work");
 	let inputs = document.getElementsByTagName("input");
 	let howManyChecked = checkIfAtleastTwoCheckobxes(inputs);
 
 	console.log(howManyChecked);
 	if(howManyChecked >= 2){
-		checkboxIdError.innerHTML="ok";
+		checkboxIdError.innerHTML="You good";
 		for(var i = 0; i <checkoboxes.length; i++){
 			checkoboxes[i].classList.remove("is-invalid");
 			checkoboxes[i].classList.add("is-valid");
 		}
-		checkboxIdError.classList.remove("invalid-feedback");
-		checkboxIdError.classList.add("valid-feedback");
+		checkboxIdError.classList.remove("text-danger");
+		checkboxIdError.classList.add("text-success");
 		isValid = true;
 	} else {
-		checkboxIdError.innerHTML = "Moga byc tylko liczby!";
-		checkboxIdError.classList.add("invalid-feedback");
+		checkboxIdError.innerHTML = "Zaznacz conajmniej 2 czekboxy!!";
+		checkboxIdError.classList.remove("text-success");
+		checkboxIdError.classList.add("text-danger");
 		for(var i = 0; i <checkoboxes.length; i++){
 			checkoboxes[i].classList.add("is-invalid");
 		}
@@ -170,4 +170,5 @@ function validateAll(){
 	validateNetto();
 	validateVat();
 	validateKod();
+	validateCheckbox();
 }
