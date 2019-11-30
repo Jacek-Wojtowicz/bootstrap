@@ -13,16 +13,41 @@ function validateName(){
 }
 
 function validateCheckbox(){
-	let inputs = document.getElementsByClassName("input");
+	let checkoboxes = document.getElementsByClassName('mojclass');
+	let checkboxIdError = document.getElementById('checkboxIdError');
+	console.log("work");
+	let inputs = document.getElementsByTagName("input");
+	let howManyChecked = checkIfAtleastTwoCheckobxes(inputs);
+
+	console.log(howManyChecked);
+	if(howManyChecked >= 2){
+		checkboxIdError.innerHTML="ok";
+		for(var i = 0; i <checkoboxes.length; i++){
+			checkoboxes[i].classList.remove("is-invalid");
+			checkoboxes[i].classList.add("is-valid");
+		}
+		checkboxIdError.classList.remove("invalid-feedback");
+		checkboxIdError.classList.add("valid-feedback");
+		isValid = true;
+	} else {
+		checkboxIdError.innerHTML = "Moga byc tylko liczby!";
+		checkboxIdError.classList.add("invalid-feedback");
+		for(var i = 0; i <checkoboxes.length; i++){
+			checkoboxes[i].classList.add("is-invalid");
+		}
+		isValid = false;
+	}
+}
+
+function checkIfAtleastTwoCheckobxes(inputs){
 	var count = 0;
 
-        for (var i = 0; i < inputs.length; i++) {
-            if (inputs[i].type == "checkbox" && inputs[i].checked) {
-                count++;
-            }
-        }
-		console.log(count);
-        return (count == 2);
+	for (var i = 0; i < inputs.length; i++) {
+		if (inputs[i].type == "checkbox" && inputs[i].checked) {
+			count++;
+		}
+	}
+	return count;
 }
 
 function validateNetto(){
