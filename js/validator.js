@@ -161,7 +161,7 @@ function calculateBrutto(){
 	let vatField = document.getElementById('vatId');
 	if (nettoFieldValid === true && vatFieldValid === true){
 		let value = parseFloat(nettoField.value) + (parseFloat(nettoField.value) * parseFloat(vatField.value)/100);
-		bruttoField.placeholder=value;
+		bruttoField.placeholder=value.toFixed;
 	}
 }
 

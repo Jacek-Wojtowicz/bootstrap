@@ -11,7 +11,21 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="sticky-footer-navbar.css" rel="stylesheet">
   <script src="js/validator.js"></script>
+  <!-- choose a theme file -->
+<link rel="stylesheet" href="theme.ice.css">
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<!-- load jQuery and tablesorter scripts -->
+<script type="text/javascript" src="js/jquery.tablesorter.js"></script>
+
+<!-- tablesorter widgets (optional) -->
+<script type="text/javascript" src="js/jquery.tablesorter.widgets.js"></script>
   <title>Hello, world!</title>
+  <script>$(function() {
+    $("#myTable").tablesorter();
+  });</script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -234,6 +248,47 @@
               </div>
             </div>
           </form>
+          <table id="myTable" class="tablesorter tablesorter-ice">
+            <thead>
+              <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Email</th>
+                <th>Due</th>
+                <th>Web Site</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Smith</td>
+                <td>John</td>
+                <td>jsmith@gmail.com</td>
+                <td>$50.00</td>
+                <td>http://www.jsmith.com</td>
+              </tr>
+              <tr>
+                <td>Bach</td>
+                <td>Frank</td>
+                <td>fbach@yahoo.com</td>
+                <td>$50.00</td>
+                <td>http://www.frank.com</td>
+              </tr>
+              <tr>
+                <td>Doe</td>
+                <td>Jason</td>
+                <td>jdoe@hotmail.com</td>
+                <td>$100.00</td>
+                <td>http://www.jdoe.com</td>
+              </tr>
+              <tr>
+                <td>Conway</td>
+                <td>Tim</td>
+                <td>tconway@earthlink.net</td>
+                <td>$50.00</td>
+                <td>http://www.timconway.com</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="alert-success col-12 col-md-4 col-xl-2">
           One of three columns
@@ -254,9 +309,6 @@
   </footer>
   <!-- Optional<JavaScript> -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
