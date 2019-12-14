@@ -166,9 +166,27 @@ function calculateBrutto(){
 }
 
 function validateAll(){
-	validateName();
-	validateNetto();
-	validateVat();
-	validateKod();
-	validateCheckbox();
+	// validateName();
+	// validateNetto();
+	// validateVat();
+	// validateKod();
+	// validateCheckbox();
+	// if(isValid == true){
+		// addRow();
+	// }
+	addRow();
 }
+
+function addRow() {
+	// add two rows
+	console.log(row);
+    var row = '<tr><td>Nazwa</td><td>77-200</td><td>1000</td><td>23</td><td>1230</td><td>Kategoria</td><td>Opcje</td><td>ocena</td><td>zdjecie</td></tr>';
+      $row = $(row),
+      // resort table using the current sort; set to false to prevent resort, otherwise
+      // any other value in resort will automatically trigger the table resort.
+      resort = true;
+    $('table')
+      .find('tbody').append($row)
+      .trigger('addRows', [$row, resort]);
+    return false;
+  }
