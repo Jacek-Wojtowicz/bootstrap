@@ -133,7 +133,7 @@ crossorigin="anonymous"></script>
             <div class="form-group row">
               <label for="inputPassword3" class="col-sm-2 col-form-label">Cena netto</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" id="nettoId" placeholder="Cena netto" oninput="validateNetto()">
+                <input type="text" class="form-control" id="nettoId" placeholder="Cena netto" oninput="validateNetto()" onblur="makeToFixed()">
                 <div id="nettoIdError"></div>
               </div>
             </div>
@@ -151,9 +151,9 @@ crossorigin="anonymous"></script>
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputPassword3" class="col-sm-2 col-form-label">Kategoria</label>
+              <label for="inputPassword3" id='category' class="col-sm-2 col-form-label">Kategoria</label>
               <div class="col-sm-10">
-                <select required id="inputState" class="form-control">
+                <select required id="category-input-state" class="form-control">
                   <option value="">Wybierz</option>
                   <option value="dom">Dom</option>
                   <option value="ogród">Ogród</option>
@@ -165,31 +165,31 @@ crossorigin="anonymous"></script>
               <div class="col-sm-2">Opcje towaru</div>
               <div class="col-sm-10">
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input mojclass" type="checkbox" id="gridCheck1" oninput="validateCheckbox()">
+                  <input class="form-check-input mojclass" type="checkbox" id="gridCheck1" oninput="validateCheckbox()" value="Używane">
                   <label class="form-check-label" for="gridCheck1">
                     Używane
                   </label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input mojclass" type="checkbox" id="gridCheck2" oninput="validateCheckbox()">
+                  <input class="form-check-input mojclass" type="checkbox" id="gridCheck2" oninput="validateCheckbox()" value="Nowe">
                   <label class="form-check-label" for="gridCheck2">
                     Nowe
                   </label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input mojclass" type="checkbox" id="gridCheck3" oninput="validateCheckbox()">
+                  <input class="form-check-input mojclass" type="checkbox" id="gridCheck3" oninput="validateCheckbox()" value="Przecenione">
                   <label class="form-check-label" for="gridCheck3">
                     Przecenione
                   </label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input mojclass" type="checkbox" id="gridCheck4" oninput="validateCheckbox()">
+                  <input class="form-check-input mojclass" type="checkbox" id="gridCheck4" oninput="validateCheckbox()" value="Polecane">
                   <label class="form-check-label" for="gridCheck4">
                     Polecane
                   </label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input mojclass" type="checkbox" id="gridCheck5" oninput="validateCheckbox()">
+                  <input class="form-check-input mojclass" type="checkbox" id="gridCheck5" oninput="validateCheckbox()" value="Fajne">
                   <label class="form-check-label" for="gridCheck5">
                     Fajne
                   </label>
@@ -202,32 +202,32 @@ crossorigin="anonymous"></script>
                 <legend class="col-form-label col-sm-2 pt-0">Ocena towaru</legend>
                 <div class="col-sm-10">
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1">
                     <label class="form-check-label" for="gridRadios1">
                       1
                     </label>
                   </div>
                   <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
                     <label class="form-check-label" for="gridRadios2">
                       2
                     </label>
                   </div>
                   <div class="form-check disabled">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3"
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="3"
                       checked>
                     <label class="form-check-label" for="gridRadios3">
                       3
                     </label>
                   </div>
                   <div class="form-check disabled">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="4">
                     <label class="form-check-label" for="gridRadios3">
                       4
                     </label>
                   </div>
                   <div class="form-check disabled">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="5">
                     <label class="form-check-label" for="gridRadios3">
                       5
                     </label>
@@ -237,9 +237,9 @@ crossorigin="anonymous"></script>
 
             </fieldset>
             <div class="form-group row">
-              <label for="inputPassword3" class="col-sm-2 col-form-label">Zdjęcie</label>
+              <label for="inputPassword3" id="zdjecie" class="col-sm-2 col-form-label">Zdjęcie</label>
               <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Zdjęcie">
+                <input type="text" class="form-control" id="inputPassword3" placeholder="Zdjęcie">
               </div>
             </div>
             <div class="form-group row">

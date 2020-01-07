@@ -74,6 +74,13 @@ function validateNetto(){
 	}
 }
 
+function makeToFixed(){
+	if(nettoFieldValid){
+		let netto = document.getElementById('nettoId');
+		netto.value = (parseFloat(netto.value).toFixed(2));
+	}
+}
+
 function validateVat(){
 	let vat = document.getElementById('vatId');
 	let vatError = document.getElementById('vatIdError');
@@ -160,8 +167,8 @@ function calculateBrutto(){
 	let bruttoField = document.getElementById('bruttoId');
 	let vatField = document.getElementById('vatId');
 	if (nettoFieldValid === true && vatFieldValid === true){
-		let value = parseFloat(nettoField.value) + (parseFloat(nettoField.value) * parseFloat(vatField.value)/100);
-		bruttoField.placeholder=value.toFixed;
+		let value = parseFloat(nettoField.value) + (parseFloat(nettoField.value) * parseFloat(vatField.value)/100)
+		bruttoField.placeholder=value.toFixed(2);
 	}
 }
 
@@ -178,9 +185,23 @@ function validateAll(){
 }
 
 function addRow() {
-	// add two rows
-	console.log(row);
-    var row = '<tr><td>Nazwa</td><td>77-200</td><td>1000</td><td>23</td><td>1230</td><td>Kategoria</td><td>Opcje</td><td>ocena</td><td>zdjecie</td></tr>';
+	let name = document.getElementById('nameId');
+	let netto = document.getElementById('nettoId');
+	let bruttoField = document.getElementById('bruttoId');
+	let vatField = document.getElementById('vatId');
+	let kod = document.getElementById('kodId');
+	let category = document.getElementById('category-input-state');
+	let kategoria = getSelectText(category);
+	let ocena = document.querySelector('input[name="gridRadios"]:checked');
+	let opcjeTowaru = concatCheckboxesValue(document.getElementsByClassName('mojclass'));
+	let zdjecie = document.getElementById('zdjecie');
+	console.log(kategoria);
+	var row = 
+	'<tr><td>' + name.value + '</td><td>' + kod.value + 
+	'</td><td>' + netto.value + '</td><td>' + vatField.value + 
+	'</td><td>' + bruttoField.value + '</td><td>' + kategoria + 
+	'</td><td>' + opcjeTowaru + '</td><td>' + ocena.value +
+	'</td><td> ' + zdjecie.value + '</td></tr>';
       $row = $(row),
       // resort table using the current sort; set to false to prevent resort, otherwise
       // any other value in resort will automatically trigger the table resort.
@@ -189,4 +210,19 @@ function addRow() {
       .find('tbody').append($row)
       .trigger('addRows', [$row, resort]);
     return false;
+  }
+
+  function concatCheckboxesValue(inputs){
+	var concatenated = '';
+
+	for (var i = 0; i < inputs.length; i++) {
+		if (inputs[i].type == "checkbox" && inputs[i].checked) {
+			concatenated += inputs[i].value + ', ';
+		}
+	}
+	return concatenated.substring(0, concatenated.length - 2);
+}
+
+function getSelectText(sel) {
+	return sel.options[sel.selectedIndex].text
   }
