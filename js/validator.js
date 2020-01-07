@@ -1,4 +1,4 @@
-let isValid = new Boolean(false); 
+let isValid = new Boolean(true); 
 const postcode_regex =  /^[0-9A-Z]{2}[-][0-9A-Z]{2}$/gi;
 const lettersRegex = /^[A-Za-z]+$/;
 const numberRegex = /^[0-9]?[,]?^[0-9]/;
@@ -27,7 +27,6 @@ function validateCheckbox(){
 		}
 		checkboxIdError.classList.remove("text-danger");
 		checkboxIdError.classList.add("text-success");
-		isValid = true;
 	} else {
 		checkboxIdError.innerHTML = "Zaznacz conajmniej 2 czekboxy!!";
 		checkboxIdError.classList.remove("text-success");
@@ -67,7 +66,6 @@ function validateNetto(){
 			netto.classList.add("is-valid");
 			nettoError.classList.remove("invalid-feedback");
 			nettoError.classList.add("valid-feedback");
-			isValid = true;
 			nettoFieldValid = true;
 			calculateBrutto();
 		}
@@ -98,7 +96,6 @@ function validateVat(){
 			vat.classList.add("is-valid");
 			vatError.classList.remove("invalid-feedback");
 			vatError.classList.add("valid-feedback");
-			isValid = true;
 			vatFieldValid = true;
 			calculateBrutto();
 		}
@@ -121,7 +118,6 @@ function validateKod(){
 			kod.classList.add("is-valid");
 			kodError.classList.remove("invalid-feedback");
 			kodError.classList.add("valid-feedback");
-			isValid = true;
 		}
 	}
 }
@@ -146,7 +142,6 @@ function validateLength(minlength, maxlength, fieldToValidate, errorField){
 		fieldToValidate.classList.add("is-valid");
 		errorField.classList.remove("invalid-feedback");
 		errorField.classList.add("valid-feedback");
-		isValid = true;
 	}
 }
 
@@ -173,6 +168,7 @@ function calculateBrutto(){
 }
 
 function validateAll(){
+	isValid = true;
 	// validateName();
 	// validateNetto();
 	// validateVat();
@@ -190,8 +186,8 @@ function addRow() {
 	let bruttoField = document.getElementById('bruttoId');
 	let vatField = document.getElementById('vatId');
 	let kod = document.getElementById('kodId');
-	let category = document.getElementById('category-input-state');
-	let kategoria = getSelectText(category);
+	let category = document.getElementById('category-input-state').value;
+	// let kategoria = getSelectText(category);
 	let ocena = document.querySelector('input[name="gridRadios"]:checked');
 	let opcjeTowaru = concatCheckboxesValue(document.getElementsByClassName('mojclass'));
 	let zdjecie = document.getElementById('zdjecie');
@@ -199,13 +195,13 @@ function addRow() {
 	var row = 
 	'<tr><td>' + name.value + '</td><td>' + kod.value + 
 	'</td><td>' + netto.value + '</td><td>' + vatField.value + 
-	'</td><td>' + bruttoField.value + '</td><td>' + kategoria + 
+	'</td><td>' + bruttoField.placeholder + '</td><td>' + category + 
 	'</td><td>' + opcjeTowaru + '</td><td>' + ocena.value +
 	'</td><td> ' + zdjecie.value + '</td></tr>';
       $row = $(row),
       // resort table using the current sort; set to false to prevent resort, otherwise
       // any other value in resort will automatically trigger the table resort.
-      resort = true;
+      resort = false;
     $('table')
       .find('tbody').append($row)
       .trigger('addRows', [$row, resort]);
