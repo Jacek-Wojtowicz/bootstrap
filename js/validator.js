@@ -169,15 +169,14 @@ function calculateBrutto(){
 
 function validateAll(){
 	isValid = true;
-	// validateName();
-	// validateNetto();
-	// validateVat();
-	// validateKod();
-	// validateCheckbox();
-	// if(isValid == true){
-		// addRow();
-	// }
-	addRow();
+	validateName();
+	validateNetto();
+	validateVat();
+	validateKod();
+	validateCheckbox();
+	if(isValid == true){
+		addRow();
+	}
 }
 
 function addRow() {
