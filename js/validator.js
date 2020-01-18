@@ -186,11 +186,9 @@ function addRow() {
 	let vatField = document.getElementById('vatId');
 	let kod = document.getElementById('kodId');
 	let category = document.getElementById('category-input-state').value;
-	// let kategoria = getSelectText(category);
 	let ocena = document.querySelector('input[name="gridRadios"]:checked');
 	let opcjeTowaru = concatCheckboxesValue(document.getElementsByClassName('mojclass'));
 	let zdjecie = document.getElementById('zdjecie');
-	console.log(kategoria);
 	var row = 
 	'<tr><td>' + name.value + '</td><td>' + kod.value + 
 	'</td><td>' + netto.value + '</td><td>' + vatField.value + 
